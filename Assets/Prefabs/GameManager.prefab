@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7083879704379932816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4201188260361429685}
+  - component: {fileID: 5819015282393268185}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4201188260361429685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083879704379932816}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5819015282393268185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083879704379932816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f697518b2ab9094aba50dca7c29c17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionText: {fileID: 0}
+  narratorUIObject: {fileID: 0}
+  moveObject: {fileID: 0}
+  narratorAudioSource: {fileID: 0}
+  overrideWaitTime: 0
+  moveTutorialObj: {fileID: 0}
+  rotateTutorialObj: {fileID: 0}
+  tutorialMoveThreshold: 0.3
+  tutorialTurnThreshold: 0.3
+  missionSuccessSound: {fileID: 8300000, guid: 7af20145650aee54ab1e75856ed3109a, type: 3}
+  sfxAudioSource: {fileID: 0}
+  mission1Text: "G\xF6rev: Al\u0131\u015Fveri\u015F yapmak i\xE7in Market Arabas\u0131n\u0131
+    bul ve al!"
+  mission2Text: "G\xF6rev: Reyondan 1. \xDCr\xFCn\xFC Al"
+  mission3Text: "G\xF6rev: BUzdolab\u0131ndan 2. \xDCr\xFCn\xFC Al"
+  mission4Text: "G\xF6rev: Reyondan 3. \xDCr\xFCn\xFC Al"
+  mission5Text: "G\xF6rev: B\xFCt\xFCn al\u0131\u015Fveri\u015F tamamland\u0131!
+    Kasaya ilerle."
+  missionEndText: "Tebrikler! Al\u0131\u015Fveri\u015Fi ba\u015Far\u0131yla tamamlad\u0131n!"
+  mission1Object: {fileID: 0}
+  mission1NarratorSpeech: {fileID: 8300000, guid: ef092cbfc6372f346b5c1cd2f87c9d82, type: 3}
+  mission2Object: {fileID: 0}
+  mission2NarratorSpeech: {fileID: 8300000, guid: b0d583dba7870b049a477ff528d80239, type: 3}
+  mission3Object: {fileID: 0}
+  mission3NarratorSpeech: {fileID: 8300000, guid: b0d583dba7870b049a477ff528d80239, type: 3}
+  mission4Object: {fileID: 0}
+  mission4NarratorSpeech: {fileID: 8300000, guid: 6be31a129a84c994ca658086d0a72a35, type: 3}
+  mission5TriggerObject: {fileID: 0}
+  mission5PathObject: {fileID: 0}
+  mission5NarratorSpeech: {fileID: 8300000, guid: 3036dedf691a42348bd23adfbc3de515, type: 3}
+  mission5ObjectsToActivate:
+  - {fileID: 0}
+  mission5ObjectsToDeactivate:
+  - {fileID: 0}
+  - {fileID: 0}
+  finalUIObject: {fileID: 0}
+  mainMenuSceneIndex: 0
