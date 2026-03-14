@@ -108,8 +108,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.031024862, y: 0.019032601, z: 0.03103769}
-  m_Center: {x: 0.001975224, y: -0.00041069742, z: 0.015518845}
+  m_Size: {x: 0.029919311, y: 0.019032601, z: 0.03103769}
+  m_Center: {x: 0.0017172471, y: -0.00041069742, z: 0.015518845}
 --- !u!1 &1826997111795100697
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +279,7 @@ MonoBehaviour:
   positionOffset: {x: 0, y: 0, z: 0}
   stayAsChild: 0
   hoverUI1: {fileID: 0}
+  boxCollider: {fileID: 1749175020156893078}
 --- !u!54 &5816786449187447697
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class CartParentHold : MonoBehaviour
 
     private XRGrabInteractable grab;
     private Rigidbody rb;
+    public BoxCollider boxCollider; // Dışarıdan atanabilmesi için public yapıldı
     private MeshRenderer meshRenderer;
     private Transform originalParent;
     private bool isHovered = false;
@@ -31,6 +32,11 @@ public class CartParentHold : MonoBehaviour
     {
         grab = GetComponent<XRGrabInteractable>();
         rb = GetComponent<Rigidbody>();
+        
+        // Eğer Inspector'dan atanmamışsa otomatik bulmaya çalış
+        if (boxCollider == null)
+            boxCollider = GetComponent<BoxCollider>();
+
         meshRenderer = GetComponentInChildren<MeshRenderer>();
         originalParent = transform.parent;
 
@@ -67,11 +73,14 @@ public class CartParentHold : MonoBehaviour
     {
         // stayAsChild Inspector'da zaten ayarlı — OnGrab içinde değiştirilmez
         isGrabbed = true;
-
         SetHoverUI(false);
 
         if (meshRenderer != null && !meshRenderer.enabled)
             meshRenderer.enabled = true;
+
+        // Tutulduğunda collider'ı kapat (fizik çakışmalarını önlemek için)
+        if (boxCollider != null)
+            boxCollider.enabled = false;
 
         // XRGrabInteractable VelocityTracking modunda bile useGravity'yi kapatır — hemen geri aç
         rb.useGravity = true;
@@ -110,7 +119,6 @@ public class CartParentHold : MonoBehaviour
             }
         }
     }
-
     void OnRelease(SelectExitEventArgs args)
     {
         // Tutulan obje bırakıldı; UI artık hiç gösterilmez
@@ -118,18 +126,22 @@ public class CartParentHold : MonoBehaviour
 
         if (stayAsChild)
         {
-            // XRGrabInteractable bırakılınca parent'ı sıfırlayabiliyor;
-            // tekrar xrOrigin'e bağla ve fizik etkilemesin.
+            // Sahne 2: Bırakılsa bile karakterle hareket eder, collider kapalı kalmalı
             transform.SetParent(xrOrigin, true);
             transform.localPosition = positionOffset;
             rb.isKinematic = true;
             rb.useGravity = false;
+
+            if (boxCollider != null) boxCollider.enabled = false;
         }
         else
         {
+            // Sahne 1: Normal bırakma, collider tekrar açılır
             transform.SetParent(originalParent);
             rb.isKinematic = false;
             rb.useGravity = true;
+
+            if (boxCollider != null) boxCollider.enabled = true;
         }
     }
 

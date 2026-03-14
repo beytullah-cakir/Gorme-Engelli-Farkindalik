@@ -5,22 +5,24 @@ using System.Collections.Generic;
 
 public class SceneLoader : MonoBehaviour
 {
-    [Tooltip("Geçilecek sahnenin Build Settings index'i")]
-    [SerializeField] private int targetSceneIndex = 0;
+    [Tooltip("Geçilecek sahnenin adı")]
+    [SerializeField] private string targetSceneName;
 
-    // Çift tetiklemeyi önlemek için flag
-    private bool buttonWasPressed = false;
+    // Çift tetiklemeyi önlemek için static flag (sahneler arası korunur)
+    private static bool s_buttonWasPressed = false;
 
     private void Update()
     {
-
-        bool isPressed = IsSecondaryButtonPressed();
+        // XR Secondary Button (Y) veya Klavye Y tuşu
+        bool isPressed = IsSecondaryButtonPressed() || Input.GetKey(KeyCode.Y);
 
         // Sadece tuşa basıldığı anda (rising edge) tetikle
-        if (isPressed && !buttonWasPressed)
+        if (isPressed && !s_buttonWasPressed)
+        {
             LoadScene();
+        }
 
-        buttonWasPressed = isPressed;
+        s_buttonWasPressed = isPressed;
     }
 
     // Y tuşu (secondaryButton) — tüm bağlı cihazlar taranir
@@ -40,6 +42,13 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(targetSceneIndex);
+        if (!string.IsNullOrEmpty(targetSceneName))
+        {
+            SceneManager.LoadScene(targetSceneName);
+        }
+        else
+        {
+            Debug.LogWarning("SceneLoader: targetSceneName is empty!");
+        }
     }
 }
